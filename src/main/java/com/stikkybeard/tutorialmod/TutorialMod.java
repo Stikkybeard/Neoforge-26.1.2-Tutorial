@@ -1,5 +1,6 @@
 package com.stikkybeard.tutorialmod;
 
+import com.stikkybeard.tutorialmod.items.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -30,10 +31,10 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(TutorialMod.MODID)
+@Mod(TutorialMod.MOD_ID)
 public class TutorialMod {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "examplemod";
+    public static final String MOD_ID = "tutorialmod";
 
 
     // Directly reference a slf4j logger
@@ -43,6 +44,8 @@ public class TutorialMod {
     public TutorialMod(IEventBus modEventBus, ModContainer modContainer) {
 
         modEventBus.addListener(this::commonSetup);
+
+        ModItems.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -58,6 +61,11 @@ public class TutorialMod {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.AZURITE);
+        }
+
 
     }
 
