@@ -1,6 +1,7 @@
 package com.stikkybeard.tutorialmod.datagen;
 
 import com.stikkybeard.tutorialmod.TutorialMod;
+import com.stikkybeard.tutorialmod.blocks.ModBlocks;
 import com.stikkybeard.tutorialmod.items.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -16,5 +17,17 @@ public class ModModelProvider extends ModelProvider {
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(ModItems.AZURITE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.RAW_AZURITE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.AZURITE_INGOT.get(), ModelTemplates.FLAT_ITEM);
+
+        /* BLOCKS */
+
+        blockModels.createTrivialCube(ModBlocks.RAW_AZURITE_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.AZURITE_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.AZURITE_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.AZURITE_END_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.AZURITE_NETHER_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.AZURITE_DEEPSLATE_ORE.get());
+
     }
 }

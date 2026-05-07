@@ -1,5 +1,6 @@
 package com.stikkybeard.tutorialmod;
 
+import com.stikkybeard.tutorialmod.blocks.ModBlocks;
 import com.stikkybeard.tutorialmod.items.ModItems;
 import org.slf4j.Logger;
 
@@ -46,6 +47,7 @@ public class TutorialMod {
         modEventBus.addListener(this::commonSetup);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -64,6 +66,21 @@ public class TutorialMod {
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.AZURITE);
+            event.accept(ModItems.RAW_AZURITE);
+            event.accept(ModItems.AZURITE_INGOT);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+
+    event.accept(ModBlocks.AZURITE_BLOCK);
+    event.accept(ModBlocks.RAW_AZURITE_BLOCK);
+    event.accept(ModBlocks.AZURITE_ORE);
+    event.accept(ModBlocks.AZURITE_NETHER_ORE);
+    event.accept(ModBlocks.AZURITE_END_ORE);
+    event.accept(ModBlocks.AZURITE_DEEPSLATE_ORE);
+
+
+
         }
 
 
